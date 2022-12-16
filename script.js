@@ -1,6 +1,7 @@
 const newQuoteButton = document.querySelector('#new-quote');
 const backgroundImage = document.querySelector('img');
 
+// Sets the default page background on load
 function setDefaultBackground() {
   const url = 'https://images.unsplash.com/photo-1604880050467-6ecc9ec909b3';
   backgroundImage.src = url;
@@ -8,6 +9,7 @@ function setDefaultBackground() {
 
 setDefaultBackground();
 
+// Retrieves an array of quotes from api and returns a random quote.
 async function getQuotes() {
   const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
   const randomIndex = Math.floor(Math.random() * 8200);
@@ -21,6 +23,7 @@ async function getQuotes() {
   }
 }
 
+// Updates the quote and quote author in DOM
 async function setQuoteAndCreator() {
   const quote = document.querySelector('#quote');
   const creator = document.querySelector('#creator');
@@ -36,6 +39,7 @@ async function setQuoteAndCreator() {
   }
 }
 
+// Retrieves a random image
 async function getRandomImage() {
   const _privateKey = 'CXE2KyCjD_wlAd3eVwBal8t9MFHzcaFC3wa1MRJJH7s';
   const api = `https://api.unsplash.com/photos/random?query=mountain&client_id=${_privateKey}`;
@@ -49,6 +53,7 @@ async function getRandomImage() {
   }
 }
 
+//Sets the image element to random image url
 async function setBackgroundImage() {
   try {
     const backgroundImageUrl = await getRandomImage();
