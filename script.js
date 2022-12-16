@@ -1,13 +1,14 @@
 const newQuoteButton = document.querySelector('#new-quote');
+const twitterButton = document.querySelector('#twitter');
 const backgroundImage = document.querySelector('img');
+const quote = document.querySelector('#quote');
+const creator = document.querySelector('#creator');
 
 // Sets the default page background on load
 function setDefaultBackground() {
   const url = 'https://images.unsplash.com/photo-1604880050467-6ecc9ec909b3';
   backgroundImage.src = url;
 }
-
-setDefaultBackground();
 
 // Retrieves an array of quotes from api and returns a random quote.
 async function getQuotes() {
@@ -25,9 +26,6 @@ async function getQuotes() {
 
 // Updates the quote and quote author in DOM
 async function setQuoteAndCreator() {
-  const quote = document.querySelector('#quote');
-  const creator = document.querySelector('#creator');
-
   try {
     const { text, author } = await getQuotes();
     text.length > 120 ? quote.classList.add('long-quote') : quote.classList.remove('long-quote');
@@ -64,6 +62,12 @@ async function setBackgroundImage() {
   }
 }
 
+// Tweet Quote
+function tweetQuote() {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${creator.textContent}`;
+  window.open(twitterUrl, '_blank');
+}
+
 // Updates the page with new quote, author and background image
 function updatePage(e) {
   e.preventDefault();
@@ -71,4 +75,13 @@ function updatePage(e) {
   setBackgroundImage();
 }
 
+function initPage() {
+  setQuoteAndCreator();
+  setBackgroundImage();
+}
+
 newQuoteButton.addEventListener('click', updatePage);
+twitterButton.addEventListener('click', tweetQuote);
+
+// On load
+initPage();
