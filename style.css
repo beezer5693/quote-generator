@@ -73,17 +73,24 @@ button {
   border: none;
   border-radius: 4px;
   outline: none;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   transition: all 200ms;
+}
+#new-quote {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background: none;
+  font-weight: 500;
 }
 
 #new-quote:hover {
-  transform: scale(1.03);
+  background: #ffffff;
+  color: #353535;
 }
 
 .twitter-button {
   color: #ffffff;
-  background: #38a1f3;
+  background: #8a8d8f;
 }
 
 .twitter-button:hover {
