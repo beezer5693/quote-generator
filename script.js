@@ -15,8 +15,8 @@ async function getQuotes() {
   const randomIndex = Math.floor(Math.random() * 8200);
 
   try {
-    const res = await fetch(apiUrl);
-    const data = await res.json();
+    const response = await fetch(apiUrl);
+    const data = await response.json();
     return data[randomIndex];
   } catch (error) {
     alert('There is an error in the data');
@@ -45,15 +45,15 @@ async function getRandomImage() {
   const api = `https://api.unsplash.com/photos/random?query=mountain&client_id=${_privateKey}`;
 
   try {
-    const res = await fetch(api);
-    const data = await res.json();
+    const response = await fetch(api);
+    const data = await response.json();
     return data.urls.full;
   } catch (error) {
     alert('Could not retrieve image');
   }
 }
 
-//Sets the image element to random image url
+// Sets the image element to random image url
 async function setBackgroundImage() {
   try {
     const backgroundImageUrl = await getRandomImage();
@@ -63,6 +63,7 @@ async function setBackgroundImage() {
   }
 }
 
+// Updates the page with new quote, author and background image
 function updatePage(e) {
   e.preventDefault();
   setQuoteAndCreator();
