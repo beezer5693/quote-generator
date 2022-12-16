@@ -86,6 +86,14 @@ button {
   background: #38a1f3;
 }
 
+.twitter-button:hover {
+  background: #178ee9;
+}
+
+.fa-twitter {
+  font-size: 2rem;
+}
+
 /* Media Query: tablet or smalle */
 
 @media screen and (max-width: 1000px) {
