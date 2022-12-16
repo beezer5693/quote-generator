@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ebebeb;
+}
+
+.background-image-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.quote-container {
+  position: relative;
+  z-index: 100;
+  width: auto;
+  max-width: 900px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.quote-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.long-quote {
+  font-size: 2rem;
+}
+
+.fa-quote-left {
+  font-size: 4rem;
+}
+
+.quote-author {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 30px;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.button-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  padding: 1rem 1.5rem;
+  transition: all 200ms;
+}
+
+#new-quote:hover {
+  transform: scale(1.03);
+}
+
+.twitter-button {
+  color: #ffffff;
+  background: #38a1f3;
+}
+
+/* Media Query: tablet or smalle */
+
+@media screen and (max-width: 1000px) {
+  .quote-container {
+    margin: auto 10px;
+  }
+
+  .quote-text {
+    font-size: 2.25rem;
+  }
+}
