@@ -32,14 +32,15 @@ async function setQuoteAndCreator() {
     const { text, author } = await getQuotes();
     text.length > 120 ? quote.classList.add('long-quote') : quote.classList.remove('long-quote');
     quote.innerText = text;
-    author === 'Anonymous' ? 'Unknown' : author;
-    creator.innerText = `- ${author}`;
+    if (author === 'Anonymous') {
+      creator.innerText = 'Unknown';
+    } else creator.innerText = author;
   } catch (error) {
     alert('Unable to set quote and author.');
   }
 }
 
-// Retrieves a random image
+// Retrieves a random image url
 async function getRandomImage() {
   const _privateKey = 'CXE2KyCjD_wlAd3eVwBal8t9MFHzcaFC3wa1MRJJH7s';
   const api = `https://api.unsplash.com/photos/random?query=mountain&client_id=${_privateKey}`;
